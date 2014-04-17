@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jgalante</groupId>
-	<artifactId>jg-jsf-parent</artifactId>
+	<artifactId>jgalante-parent</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
@@ -14,16 +14,19 @@
 		<omnifaces.version>1.7</omnifaces.version>
 		<hibernate.version>4.3.4.Final</hibernate.version>
 	</properties>
-	
-	
-	<dependencies>
 
+
+	<dependencies>
 		<dependency>
-			<groupId>com.jgalante</groupId>
-			<artifactId>jgalante-faces</artifactId>
-			<version>1.0.0</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.6</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
@@ -44,19 +47,19 @@
 					<artifactId>hibernate-entitymanager</artifactId>
 					<version>${hibernate.version}</version>
 				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>eclipselink</id>
+			<dependencies>
 				<dependency>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-					<version>1.7.6</version>
-				</dependency>
-				<dependency>
-					<groupId>org.hibernate</groupId>
-					<artifactId>hibernate-validator</artifactId>
-					<version>4.2.0.Final</version>
+					<groupId>org.eclipse.persistence</groupId>
+					<artifactId>eclipselink</artifactId>
+					<version>2.5.1</version>
 				</dependency>
 			</dependencies>
 		</profile>
-		
+
 		<!-- jboss -->
 		<profile>
 			<id>jboss</id>
@@ -103,6 +106,19 @@
 					<artifactId>weld-servlet</artifactId>
 					<version>2.2.0.CR2</version>
 				</dependency>
+
+				<!-- Persistence -->
+				<dependency>
+					<groupId>javax.persistence</groupId>
+					<artifactId>persistence-api</artifactId>
+					<version>1.0.2</version>
+				</dependency>
+				<dependency>
+					<groupId>javax.validation</groupId>
+					<artifactId>validation-api</artifactId>
+					<version>1.1.0.Final</version>
+				</dependency>
+
 
 			</dependencies>
 		</profile>
